@@ -84,3 +84,13 @@ def edit_post():
     article.save()
 
     return redirect(url_for("blogs.blogpage"))
+
+
+@blueprint.route("/run-seed")
+def run_seed():
+    if not Article.query.filter_by(slug="article-1").first():
+        import app.scripts.seed
+
+        return "Database seed completed!"
+    else:
+        return "Nothing to run."
