@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% block title %}Blog Articles{% endblock %} {% block
+body %}
+<div class="join-viewport">
+  <h1 class="join-title">Join Us</h1>
+  {% if error %}
+  <p style="color: tomato">{{ error }}</p>
+  {% endif %}
+
+  <div class="join-page-content">
+    <img class="join-page-img" src="{{ url_for("static",
+    filename="assets/about_image.svg") }}" alt="about-image" />
+    <div class="join-signup-section">
+      <h1>Sign up</h1>
+      <form action="" method="POST">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="First Name"
+          required
+        /><br />
+        <input
+          type="text"
+          id="surname"
+          name="surname"
+          placeholder="Surname"
+          required
+        /><br />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="email@adress.com"
+          required
+        /><br />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="password"
+          required
+        /><br />
+        <button class="btn" type="submit">Sign Up</button>
+      </form>
+      <a class="already-member">Already a Member?</a>
+    </div>
+
+    <div class="join-login-section">
+      <h1>Login</h1>
+      <form action="" method="POST">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="email"
+          required
+        /><br />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="password"
+          required
+        /><br />
+        <button class="btn" type="submit">Login</button>
+      </form>
+      <a class="not-member">Not a Member?</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

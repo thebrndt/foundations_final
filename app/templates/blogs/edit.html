@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block title %}Blog Articles{% endblock %} {% block
+body %}
+<div class="newpost-viewport">
+  <div class="newpost-container">
+    <div class="newpost-section">
+      <h1>Edit Post</h1>
+      <form action="{{ url_for('blogs.edit_post')}}" method="POST">
+        <input name="id" type="hidden" value="{{ blog.id }}" />
+        <input
+          type="text"
+          id="slug"
+          name="slug"
+          value="{{ blog.slug }}"
+          pattern="[A-Za-z0-9]+"
+          maxlength="12"
+          required
+        />
+        {% if error %}
+        <p style="color: tomato">{{ error }}</p>
+        {% endif %}
+        <p>
+          'slug' refers to what the unique path your article will have in the
+          url and may not be longer than 12 characters
+        </p>
+        <br />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value="{{ blog.title }}"
+          required
+        /><br />
+        <textarea name="text" id="text" cols="30" rows="10">
+{{ blog.text }}</textarea
+        >
+        <br />
+        <select name="author_id">
+          {% for author in authors %}
+          <option value="{{ author.id }}">
+            {{ author.name + ' ' + author.surname }}
+          </option>
+          {% endfor %}
+        </select>
+        <br />
+        <button class="btn" type="submit">Edit</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <button class="btn" onclick="window.location.href='/blogpage'">
+      Back to Articles
+    </button>
+  </footer>
+</div>
+{% endblock %}

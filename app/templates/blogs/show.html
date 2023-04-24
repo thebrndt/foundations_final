@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block title %}Blog Articles{% endblock %} {% block
+body %}
+<div class="blog-viewport">
+  <div class="blog-show-container">
+    <div class="blog-article">
+      <div class="blog-article-meta">
+        <p>Posted: {{ article.dateTime }}</p>
+        <h3>By: {{ article.author.name }} {{ article.author.surname }}</h3>
+      </div>
+      <div class="blog-article-content">
+        <h1>{{ article.title }}</h1>
+        <br />
+        <p>{{ article.text }}</p>
+      </div>
+      <br />
+      <div class="blog-control">
+        <a
+          class="btn"
+          href="{{ url_for('blogs.show_edit_post', id=article.id)}}"
+          >Edit</a
+        >
+        <form action="{{ url_for('blogs.delete_post') }}" method="POST">
+          <input name="id" type="hidden" value="{{ article.id }}" />
+          <button class="btn" type="submit">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <button class="btn" onclick="window.location.href='/blogpage'">
+      Back to Articles
+    </button>
+  </footer>
+</div>
+{% endblock %}

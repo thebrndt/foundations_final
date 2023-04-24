@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block title %}Welcome - FliSP{% endblock %} {%
+block body %}
+<div class="home-viewport">
+  <h1 class="home-title">Welcome to FliSP</h1>
+  <div class="home-page-content">
+    <div class="home-page-left">
+      <img src="{{ url_for("static", filename="assets/home_blog_img.svg") }}"
+      alt="blog-image" />
+    </div>
+    <div class="home-page-right">
+      <div>
+        <h2>Your one stop forum for everthing flat-sharing related</h2>
+        <p>
+          Welcome to our community for people living in shared flats! Our blog
+          and forum are dedicated to providing you with the resources and
+          support you need to make the most of your shared living experience.
+          Whether you're looking for tips on communication, housemate etiquette,
+          or just need to vent about your latest roommate drama, we're here for
+          you. Join our community today and connect with like-minded individuals
+          who understand the joys and challenges of shared living.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="home-buttons">
+    <button
+      onclick="window.location.href='{{ url_for('blogs.blogpage') }}'"
+      class="btn"
+    >
+      View Blog
+    </button>
+    <button
+      onclick="window.location.href='{{ url_for('simple_pages.joinpage') }}'"
+      class="btn"
+    >
+      Join
+    </button>
+  </div>
+</div>
+{% endblock %}

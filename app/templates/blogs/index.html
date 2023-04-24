@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block title %}Blog Articles{% endblock %} {% block
+body %}
+<div class="blog-viewport">
+  <h1 class="blog-title">Blog Page</h1>
+  <div class="blog-page-container">
+    <div class="blog-page-left">
+      <h2>Get Started Right Away</h2>
+      <button
+        class="btn"
+        onclick="window.location.href='{{ url_for("blogs.get_newpost") }}' "
+      >
+        Create
+      </button>
+    </div>
+    <div class="blog-page-article-list">
+      <ul>
+        {% for article in articles_pagination %}
+        <li><a href="/blogpage/{{ article.slug}}">{{ article.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <br />
+  <nav class="blog-page-pagination">
+    {% if articles_pagination.prev_num %}
+    <a href="/blogpage?page={{ articles_pagination.prev_num }}"
+      >Previous Page</a
+    >
+    {% else %}
+    <span>Previous Page</span>
+    {% endif %}
+    <span> - </span>
+    {% if articles_pagination.next_num %}
+    <a href="/blogpage?page={{ articles_pagination.next_num }}">Next Page</a>
+    {% else %}
+    <span>Next Page</span>
+    {% endif %}
+  </nav>
+</div>
+{% endblock %}

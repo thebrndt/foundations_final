@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block title %}Blog Articles{% endblock %} {% block
+body %}
+<div class="newpost-viewport">
+  <div class="newpost-container">
+    <div class="newpost-section">
+      <h1>New Post</h1>
+      <form action="" method="POST">
+        <input
+          type="text"
+          id="slug"
+          name="slug"
+          placeholder="slug"
+          pattern="[A-Za-z0-9]+"
+          maxlength="12"
+          required
+        />
+        {% if error %}
+        <p style="color: tomato">{{ error }}</p>
+        {% endif %}
+        <p>
+          'slug' refers to what the unique path your article will have in the
+          url and may not include special characters or be longer than 12
+          characters
+        </p>
+        <br />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Article Title"
+          required
+        /><br />
+        <textarea
+          name="text"
+          id="text"
+          cols="30"
+          rows="10"
+          placeholder="Article Text Here..."
+        ></textarea>
+        <br />
+        <select name="author_id">
+          {% for author in authors %}
+          <option value="{{ author.id }}">
+            {{ author.name + ' ' + author.surname }}
+          </option>
+          {% endfor %}
+        </select>
+        <br />
+        <button class="btn" type="submit">Post</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <button class="btn" onclick="window.location.href='/blogpage'">
+      Back to Articles
+    </button>
+  </footer>
+</div>
+{% endblock %}
