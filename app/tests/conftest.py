@@ -4,6 +4,7 @@ from os import environ
 from flask_migrate import upgrade
 
 
+# define fixture setting up in-memory database
 @pytest.fixture
 def client():
     environ["DATABASE_URL"] = "sqlite://"

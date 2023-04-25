@@ -5,6 +5,7 @@ db = SQLAlchemy()
 migrate = Migrate()
 
 
+# defines functions that allow for CRUD operations in the database and models
 class CRUDMixin:
     def save(self):
         db.session.add(self)

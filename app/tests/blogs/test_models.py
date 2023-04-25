@@ -1,3 +1,4 @@
+# Import necessary modules and functions
 from app.extensions.database import db
 from app.blogs.models import Article, Author
 from datetime import datetime

@@ -14,6 +14,7 @@ def joinpage():
     return render_template("simple_pages/joinpage.html")
 
 
+# adds new user/author to database if email from fomr does not exist in database
 @blueprint.post("/joinpage")
 def post_joinpage():
     email = request.form.get("email")
@@ -33,19 +34,3 @@ def post_joinpage():
     author.save()
 
     return redirect(url_for("blogs.blogpage"))
-
-
-# @blueprint.post("/joinpage")
-# def post_joinpage_login():
-#     email = request.form.get("email")
-#     password = request.form.get("password")
-
-#     author = Author.query.filter_by(email=email).first()
-
-#     if author and author.password == password:
-#         return redirect(url_for("blogs.blogpage"))
-#     else:
-#         return render_template(
-#             "simple_pages/joinpage.html",
-#             error="Error: This email and password do not match, or user does not exist!",
-#         )
