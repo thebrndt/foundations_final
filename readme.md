@@ -23,6 +23,27 @@ FliSP is built using various technologies that work together.
 
 <hr>
 
+## Setup Instructions
+Instructions assuming you have python installed on your device or system. If commands with prefix 'python' cause issues, you may want to specify a specific version to use in you commands (for example: 'python3 < command here >')
+
+1. Clone the repository:
+> https://github.com/thebrndt/foundations_final
+2. Create a virtual environment in the directory
+> python -m venv venv (or python3 -m venv venv)
+3. Activate the virtual environment (venv)
+> source venv/bin/acitve (or source venv\Scripts\activate on windows)
+4. Install requirements
+> pip install -r requirements.txt
+5. Setup environment variables (.env)
+> FLASK_DEBUG=True
+DATABASE_URL=sqlite:///database.db
+FLASK_APP=run.py
+6. Run (either using gunicornn or python command)
+> gunicorn:app (or python run.py)
+
+
+<hr>
+
 ## Changelog (as of previous hand-in)
 
 - Completely rebuilt project from scratch (fixing structural code issues)
