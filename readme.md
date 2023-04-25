@@ -41,7 +41,6 @@ FLASK_APP=run.py
 6. Run (either using gunicornn or python command)
 > gunicorn:app (or python run.py)
 
-
 <hr>
 
 ## Changelog (as of previous hand-in)
