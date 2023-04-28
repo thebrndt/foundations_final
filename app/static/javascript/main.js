@@ -11,8 +11,6 @@ var loginSection = document.querySelector(".join-login-section")
 // the Hamburger Menu
 function toggleNavActive() {
     navBar.classList.toggle("active");
-    console.log(navLinks)
-    console.log(navLinks1)
 }
 hamburger.addEventListener('click', function(){
     toggleNavActive()
